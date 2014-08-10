@@ -1,7 +1,8 @@
-FROM ubuntu:latest
-MAINTAINER Johan Bloemberg
+FROM ubuntu:14.04
+MAINTAINER Johan Bloemberg <docker@ijohan.nl>
 
 RUN apt-get update 
+ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get install -yqq netatalk
 RUN mkdir -p /backup/timemachine
 RUN echo '/backup/timemachine "Backups" allow:timemachine options:usedots,upriv,tm' >> /etc/netatalk/AppleVolumes.default
