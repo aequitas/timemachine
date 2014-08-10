@@ -1,0 +1,14 @@
+[Unit]
+Description=Timemachine
+After=docker.service
+Requires=docker.service
+
+[Service]
+TimeoutStartSec=0
+ExecStartPre=-/usr/bin/docker kill timemachine
+ExecStartPre=-/usr/bin/docker rm timemachine
+ExecStartPre=/usr/bin/docker pull timemachine
+ExecStart=/usr/bin/docker run --name timemachine -p 548:548 -v /mnt/backup:/backup aequitas/timemachine
+
+[Install]
+WantedBy=multi-user.target
