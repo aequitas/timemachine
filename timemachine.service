@@ -7,7 +7,7 @@ Requires=docker.service
 TimeoutStartSec=0
 ExecStartPre=-/usr/bin/docker kill timemachine
 ExecStartPre=-/usr/bin/docker rm timemachine
-ExecStartPre=/usr/bin/docker pull timemachine
+ExecStartPre=/usr/bin/docker pull aequitas/timemachine
 ExecStart=/usr/bin/docker run --name timemachine -p 548:548 -v /mnt/backup:/backup aequitas/timemachine
 
 [Install]
