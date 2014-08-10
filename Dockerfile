@@ -3,6 +3,7 @@ MAINTAINER Johan Bloemberg <docker@ijohan.nl>
 
 RUN apt-get update 
 ENV DEBIAN_FRONTEND noninteractive
+RUN ln -s -f /bin/true /usr/bin/chfn
 RUN apt-get install -yqq netatalk
 RUN mkdir -p /backup/timemachine
 RUN echo '/backup/timemachine "Backups" allow:timemachine options:usedots,upriv,tm' >> /etc/netatalk/AppleVolumes.default
